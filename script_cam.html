@@ -1,0 +1,41 @@
+<video autoplay></video>
+
+<script>
+  var player = document.getElementById('player');
+
+  var handleSuccess = function(stream) {
+    if (window.URL) {
+      player.src = window.URL.createObjectURL(stream);
+    } else {
+      player.src = stream;
+    }
+  };
+
+  navigator.mediaDevices.getUserMedia({ audio: true, video: false })
+      .then(handleSuccess)
+</script>
+<script>
+const constraints = {
+  video: true
+};
+const video = document.querySelector('video');
+navigator.mediaDevices.getUserMedia(constraints).
+  then((stream) => {video.srcObject = stream});
+</script>
+<script>
+  var player = document.getElementById('player');
+
+  var handleSuccess = function(stream) {
+    if (window.URL) {
+      player.src = window.URL.createObjectURL(stream);
+    } else {
+      player.src = stream;
+    }
+  };
+
+  navigator.mediaDevices.getUserMedia({ audio: true, video: true })
+      .then(handleSuccess)
+</script>
+
+
+
